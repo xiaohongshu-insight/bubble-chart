@@ -25,6 +25,7 @@ body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
 .insight-card.neutral { border-left-color: #607D8B; background: #F5F7F8; }
 .insight-card.neutral h4 { color: #455A64; }
 .chart-wrap { position: relative; height: 280px; margin-bottom: 8px; }
+.chart-wrap-lg { position: relative; height: 320px; margin-bottom: 8px; }
 .chart-note { font-size: 11px; color: #aaa; text-align: right; margin-top: 4px; }
 table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 20px; }
 thead th { background: #37474F; color: #fff; padding: 9px 12px; text-align: center; font-weight: 600; }
@@ -32,6 +33,7 @@ tbody td { padding: 8px 12px; border-bottom: 1px solid #EEEEEE; text-align: cent
 tbody tr:last-child td { border-bottom: none; }
 tbody tr:hover { background: #F5F8FF; }
 .xt-row td { background: #E3F2FD; color: #1565C0; font-weight: 700; }
+.xt2-row td { background: #E8F5E9; color: #2E7D32; font-weight: 700; }
 .tag-pill { display:inline-block; padding:2px 9px; border-radius:10px; font-size:11px; font-weight:600; }
 .lead { background:#E8F5E9; color:#2E7D32; }
 .comp { background:#FFF3E0; color:#E65100; }
@@ -52,12 +54,103 @@ tbody tr:hover { background: #F5F8FF; }
 .trend-stable { color:#1565C0; }
 .trend-boom { color:#6A1B9A; font-weight:700; }
 .insight-box { background:#E8EAF6; border-left:4px solid #3F51B5; padding:13px 16px; border-radius:4px; font-size:12.5px; line-height:1.85; color:#1A237E; margin-top:4px; }
+.insight-box.green { background:#E8F5E9; border-left-color:#2E7D32; color:#1B5E20; }
+/* 投放数据区 */
+.kpi-grid { display:grid; grid-template-columns: repeat(4,1fr); gap:12px; margin-bottom:20px; }
+.kpi-card { border-radius:8px; padding:16px; text-align:center; }
+.kpi-card .kpi-label { font-size:11px; color:#888; margin-bottom:6px; }
+.kpi-card .kpi-val { font-size:20px; font-weight:700; }
+.kpi-card .kpi-sub { font-size:11px; color:#aaa; margin-top:4px; }
+.kpi-xt { background:#E3F2FD; }
+.kpi-xt .kpi-val { color:#1565C0; }
+.kpi-b2b { background:#E8F5E9; }
+.kpi-b2b .kpi-val { color:#2E7D32; }
+.acct-badge { display:inline-block; padding:2px 10px; border-radius:10px; font-size:11px; font-weight:700; }
+.acct-xt { background:#BBDEFB; color:#0D47A1; }
+.acct-b2b { background:#C8E6C9; color:#1B5E20; }
+.mom-up { color:#2E7D32; font-weight:600; }
+.mom-down { color:#C62828; font-weight:600; }
+.mom-na { color:#aaa; }
+.note-chip { display:inline-block; background:#FFF8E1; color:#E65100; border-radius:8px; padding:1px 7px; font-size:10.5px; }
 </style>
 </head>
 <body>
 
 <div class="page-title">XTransfer 小红书数据看板</div>
-<div class="page-sub">数据范围：2025Q3 – 2026Q2（截至5月中）| 搜索量数据已脱敏为声量指数（XTransfer 2026年3月=100）</div>
+<div class="page-sub">数据范围：2025Q3 – 2026Q2（截至5月中）| 搜索量数据已脱敏为声量指数（XTransfer 2026年3月=100）| 投放数据 2026年1-4月真实值</div>
+
+<!-- 2.0 投放概览 -->
+<div class="section">
+  <div class="section-title">2.0 两账号投放概览（2026年1-4月，Hive真实数据）</div>
+  <div class="section-body">
+
+    <div class="section-sub">▌ XTransfer 主账号（A级 · 互联网-软件工具）</div>
+    <div class="kpi-grid">
+      <div class="kpi-card kpi-xt"><div class="kpi-label">总曝光量（1-4月）</div><div class="kpi-val">103.8万</div><div class="kpi-sub">竞价广告</div></div>
+      <div class="kpi-card kpi-xt"><div class="kpi-label">总点击量（1-4月）</div><div class="kpi-val">6.99万</div><div class="kpi-sub">实际点击</div></div>
+      <div class="kpi-card kpi-xt"><div class="kpi-label">平均CTR</div><div class="kpi-val">6.70%</div><div class="kpi-sub">近30日消耗 ¥31,864</div></div>
+      <div class="kpi-card kpi-xt"><div class="kpi-label">CTR增幅（1→4月）</div><div class="kpi-val">+28.4%</div><div class="kpi-sub">5.99% → 7.69%</div></div>
+    </div>
+
+    <div class="section-sub">▌ XTransfer外贸B2B（A级 · 互联网-网站及软件）</div>
+    <div class="kpi-grid">
+      <div class="kpi-card kpi-b2b"><div class="kpi-label">总曝光量（1-4月）</div><div class="kpi-val">41.5万</div><div class="kpi-sub">2月起快速起量</div></div>
+      <div class="kpi-card kpi-b2b"><div class="kpi-label">总点击量（1-4月）</div><div class="kpi-val">2.12万</div><div class="kpi-sub">4月单月1.49万</div></div>
+      <div class="kpi-card kpi-b2b"><div class="kpi-label">4月平均CTR</div><div class="kpi-val">5.88%</div><div class="kpi-sub">近30日消耗 ¥44,441</div></div>
+      <div class="kpi-card kpi-b2b"><div class="kpi-label">4月曝光环比</div><div class="kpi-val">+95%</div><div class="kpi-sub">3月11.7万→4月22.8万</div></div>
+    </div>
+
+    <div class="section-sub">▌ 月度明细对比</div>
+    <table>
+      <thead>
+        <tr>
+          <th>账号</th><th>月份</th><th>曝光量</th><th>点击量</th><th>CTR</th><th>曝光MoM</th><th>点击MoM</th><th>备注</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="xt-row">
+          <td rowspan="4" style="font-weight:700"><span class="acct-badge acct-xt">XTransfer</span></td>
+          <td>1月</td><td>27.6万</td><td>16,544</td><td>5.99%</td><td class="mom-na">—</td><td class="mom-na">—</td><td style="text-align:left;font-size:12px;color:#555"></td>
+        </tr>
+        <tr class="xt-row">
+          <td>2月</td><td>21.3万</td><td>13,178</td><td>6.05%</td><td class="mom-down">-22.8%</td><td class="mom-down">-20.3%</td><td style="text-align:left;font-size:12px;color:#555">春节影响</td>
+        </tr>
+        <tr class="xt-row">
+          <td>3月</td><td>29.1万</td><td>20,552</td><td>7.06%</td><td class="mom-up">+36.4%</td><td class="mom-up">+55.9%</td><td style="text-align:left;font-size:12px;color:#555"><span class="note-chip">全期最佳</span> 3月搜索量同步爆发</td>
+        </tr>
+        <tr class="xt-row">
+          <td>4月</td><td>25.7万</td><td>19,601</td><td>7.69%</td><td class="mom-down">-11.8%</td><td class="mom-down">-4.6%</td><td style="text-align:left;font-size:12px;color:#555">曝光微降，CTR创新高</td>
+        </tr>
+        <tr class="xt2-row">
+          <td rowspan="4" style="font-weight:700"><span class="acct-badge acct-b2b">外贸B2B</span></td>
+          <td>1月</td><td>2.5万</td><td>470</td><td>1.92%</td><td class="mom-na">—</td><td class="mom-na">—</td><td style="text-align:left;font-size:12px;color:#555">学习期，素材待优化</td>
+        </tr>
+        <tr class="xt2-row">
+          <td>2月</td><td>4.5万</td><td>1,127</td><td>4.14%</td><td class="mom-up">+78.3%</td><td class="mom-up">+139.8%</td><td style="text-align:left;font-size:12px;color:#555">CTR大幅提升，素材找到方向</td>
+        </tr>
+        <tr class="xt2-row">
+          <td>3月</td><td>11.7万</td><td>4,720</td><td>4.09%</td><td class="mom-up">+162.2%</td><td class="mom-up">+318.9%</td><td style="text-align:left;font-size:12px;color:#555"><span class="note-chip">爆发起量</span> 投放规模快速扩张</td>
+        </tr>
+        <tr class="xt2-row">
+          <td>4月</td><td>22.8万</td><td>14,923</td><td>5.88%</td><td class="mom-up">+94.8%</td><td class="mom-up">+216.2%</td><td style="text-align:left;font-size:12px;color:#555"><span class="note-chip">超过主账号</span> 单月曝光首次超越XTransfer</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="chart-wrap-lg">
+      <canvas id="adChart"></canvas>
+    </div>
+    <div class="chart-note">数据来源：Hive redst.st_ads_crm_brand_tag_brand_user_metrics_day | 曝光量/点击量为竞价广告（RTB）指标 | 消耗金额需BO3权限（近30日消耗来自CRM）</div>
+
+    <div class="insight-box green" style="margin-top:16px">
+      <b>投放核心结论</b><br>
+      ① <b>外贸B2B账号 4月曝光量首次超越主账号（22.8万 vs 25.7万接近），是最大增量来源</b>，3-4月增速超+100%，是当前最值得加码的账号<br>
+      ② <b>主账号 CTR 持续提升（5.99%→7.69%），素材优化效果显著</b>，3月搜索声量爆发与投放点击量峰值高度吻合<br>
+      ③ 两账号合计4月总曝光 <b>48.5万次</b>，较1月合计29.1万次增长 <b>+66.7%</b><br>
+      ④ 消耗绝对值（¥金额）需BO3权限，CRM近30日快照：XTransfer ¥31,864 / 外贸B2B ¥44,441
+    </div>
+  </div>
+</div>
 
 <!-- 2.1 -->
 <div class="section">
@@ -70,7 +163,7 @@ tbody tr:hover { background: #F5F8FF; }
       </div>
       <div class="insight-card up">
         <h4>② XTransfer 3月爆发，创近16个月新高</h4>
-        <p>2025年搜索声量整体偏低，2026年1月起持续回升，<span class="tag">3月达峰值</span>（指数100，MoM+151%），是近期投放拉动品牌心智的最有力证据。</p>
+        <p>2025年搜索声量整体偏低，2026年1月起持续回升，<span class="tag">3月达峰值</span>（指数100，MoM+151%），是投放拉动品牌心智的最有力证据——与3月点击量峰值完全吻合。</p>
       </div>
       <div class="insight-card warn">
         <h4>③ 万里汇：稳定高声量，是最大追赶目标</h4>
@@ -178,14 +271,15 @@ tbody tr:hover { background: #F5F8FF; }
     </table>
     <div class="insight-box" style="margin-top:12px">
       <b>核心洞察</b><br>
-      ① <b>品牌信任类词26Q1集中爆发</b>（「工作怎么样」「是大厂吗」均大幅上升），品牌认知度提升，用户主动探索品牌背书，是种草内容重要方向<br>
-      ② <b>跨境支付安全/风控是最大用户痛点</b>，25Q4爆发后维持高热，XTransfer需针对此词布局「安全背书」类内容<br>
+      ① <b>品牌信任类词26Q1集中爆发</b>（「工作怎么样」「是大厂吗」均大幅上升），用户主动探索品牌背书，是种草内容重要方向<br>
+      ② <b>跨境支付安全/风控是最大用户痛点</b>，25Q4爆发后维持高热，需布局「安全背书」类内容<br>
       ③ 「外贸收款」行业大词热度小幅下滑，需通过持续投放维持心智，防止万里汇等截流
     </div>
   </div>
 </div>
 
 <script>
+// 搜索量趋势图
 const months = ['25-Jan','25-Feb','25-Mar','25-Apr','25-May','25-Jun',
                  '25-Jul','25-Aug','25-Sep','25-Oct','25-Nov','25-Dec',
                  '26-Jan','26-Feb','26-Mar','26-Apr'];
@@ -214,6 +308,39 @@ new Chart(document.getElementById('searchChart').getContext('2d'), {
       x:{ grid:{color:'#F0F0F0'}, ticks:{font:{size:11}} },
       y:{ grid:{color:'#F0F0F0'}, ticks:{font:{size:11}},
           title:{display:true, text:'声量指数（XTransfer 2026年3月=100）', font:{size:11}, color:'#888'} }
+    }
+  }
+});
+
+// 投放数据图：曝光+CTR双轴
+const adMonths = ['1月','2月','3月','4月'];
+const xtImp  = [27.6, 21.3, 29.1, 25.7];
+const b2bImp = [2.5,  4.5,  11.7, 22.8];
+const xtCTR  = [5.99, 6.05, 7.06, 7.69];
+const b2bCTR = [1.92, 4.14, 4.09, 5.88];
+
+new Chart(document.getElementById('adChart').getContext('2d'), {
+  type: 'bar',
+  data: {
+    labels: adMonths,
+    datasets: [
+      { label:'XTransfer 曝光量(万)', data:xtImp, backgroundColor:'rgba(21,101,192,0.75)', yAxisID:'y' },
+      { label:'外贸B2B 曝光量(万)', data:b2bImp, backgroundColor:'rgba(46,125,50,0.75)', yAxisID:'y' },
+      { label:'XTransfer CTR(%)', data:xtCTR, type:'line', borderColor:'#1565C0', pointBackgroundColor:'#1565C0', borderWidth:2.5, pointRadius:5, tension:0.3, yAxisID:'y2', fill:false },
+      { label:'外贸B2B CTR(%)', data:b2bCTR, type:'line', borderColor:'#2E7D32', pointBackgroundColor:'#2E7D32', borderWidth:2.5, pointRadius:5, tension:0.3, yAxisID:'y2', fill:false, borderDash:[5,3] },
+    ]
+  },
+  options: {
+    responsive:true, maintainAspectRatio:false,
+    plugins: {
+      legend:{ position:'top', labels:{ font:{size:12}, boxWidth:18 } },
+      tooltip:{ mode:'index' }
+    },
+    scales: {
+      y:{ type:'linear', position:'left', title:{display:true, text:'曝光量（万次）', font:{size:11}, color:'#888'},
+          grid:{color:'#F0F0F0'}, ticks:{font:{size:11}} },
+      y2:{ type:'linear', position:'right', title:{display:true, text:'CTR（%）', font:{size:11}, color:'#888'},
+           grid:{display:false}, ticks:{font:{size:11}}, min:0, max:10 }
     }
   }
 });
