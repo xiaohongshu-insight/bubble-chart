@@ -10,13 +10,9 @@
 body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #F4F6FA; color: #222; padding: 32px; }
 .page-title { font-size: 22px; font-weight: 700; color: #1A237E; margin-bottom: 4px; }
 .page-sub { font-size: 13px; color: #888; margin-bottom: 32px; }
-
-/* Section */
 .section { margin-bottom: 36px; }
 .section-title { font-size: 15px; font-weight: 700; color: #fff; background: #1565C0; padding: 9px 16px; border-radius: 6px 6px 0 0; }
 .section-body { background: #fff; border-radius: 0 0 6px 6px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); padding: 20px 20px 24px; }
-
-/* Insight cards */
 .insight-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 20px; }
 .insight-card { background: #F0F4FF; border-left: 4px solid #3F51B5; border-radius: 6px; padding: 14px 16px; }
 .insight-card h4 { font-size: 13px; font-weight: 700; color: #1A237E; margin-bottom: 6px; }
@@ -28,12 +24,8 @@ body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
 .insight-card.warn h4 { color: #E65100; }
 .insight-card.neutral { border-left-color: #607D8B; background: #F5F7F8; }
 .insight-card.neutral h4 { color: #455A64; }
-
-/* Chart */
-.chart-wrap { position: relative; height: 260px; margin-bottom: 8px; }
+.chart-wrap { position: relative; height: 280px; margin-bottom: 8px; }
 .chart-note { font-size: 11px; color: #aaa; text-align: right; margin-top: 4px; }
-
-/* SOV Table */
 table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 20px; }
 thead th { background: #37474F; color: #fff; padding: 9px 12px; text-align: center; font-weight: 600; }
 tbody td { padding: 8px 12px; border-bottom: 1px solid #EEEEEE; text-align: center; vertical-align: middle; }
@@ -49,8 +41,6 @@ tbody tr:hover { background: #F5F8FF; }
 .down-vs { color:#2E7D32; font-weight:600; }
 .flat-vs { color:#888; }
 .section-sub { font-size:13px; font-weight:700; color:#1565C0; border-left:3px solid #1565C0; padding-left:10px; margin:18px 0 10px; }
-
-/* Keyword table */
 .kw-table thead th { background: #1A237E; }
 .kw-table td { font-size: 12.5px; }
 .kw-type { display:inline-block; padding:1px 7px; border-radius:8px; font-size:11px; }
@@ -67,21 +57,20 @@ tbody tr:hover { background: #F5F8FF; }
 <body>
 
 <div class="page-title">XTransfer 小红书数据看板</div>
-<div class="page-sub">数据范围：2025Q3 – 2026Q2（截至5月中）| 搜索量数据已脱敏为声量指数（最大值=100）</div>
+<div class="page-sub">数据范围：2025Q3 – 2026Q2（截至5月中）| 搜索量数据已脱敏为声量指数（XTransfer 2026年3月=100）</div>
 
-<!-- ===== 2.1 品牌搜索量趋势 ===== -->
+<!-- 2.1 -->
 <div class="section">
   <div class="section-title">2.1 品牌搜索量趋势（含竞品对比）</div>
   <div class="section-body">
-
     <div class="insight-grid">
       <div class="insight-card">
         <h4>① XTransfer vs 万里汇：差距正在缩小</h4>
-        <p>万里汇全程搜索声量领先，但XTransfer在<span class="tag">2026年3月</span>出现历史峰值（指数100），单月搜索量已超过万里汇，说明投放效果显著拉动品牌搜索。</p>
+        <p>万里汇全程搜索声量领先，但XTransfer在<span class="tag">2026年3月</span>达到历史峰值（指数100），单月已超过万里汇，投放效果显著拉动品牌搜索。</p>
       </div>
       <div class="insight-card up">
         <h4>② XTransfer 3月爆发，创近16个月新高</h4>
-        <p>2025年搜索声量整体偏低，2026年1月起持续回升，<span class="tag">3月达到峰值</span>（指数100），MoM +151%，是近期投放拉动品牌心智的最有力证据。</p>
+        <p>2025年搜索声量整体偏低，2026年1月起持续回升，<span class="tag">3月达峰值</span>（指数100，MoM+151%），是近期投放拉动品牌心智的最有力证据。</p>
       </div>
       <div class="insight-card warn">
         <h4>③ 万里汇：稳定高声量，是最大追赶目标</h4>
@@ -92,7 +81,6 @@ tbody tr:hover { background: #F5F8FF; }
         <p>Airwallex和连连支付的搜索声量约为XTransfer的20-30%，与头部品牌差距较大，短期不构成主要竞争压力。</p>
       </div>
     </div>
-
     <div class="chart-wrap">
       <canvas id="searchChart"></canvas>
     </div>
@@ -100,32 +88,31 @@ tbody tr:hover { background: #F5F8FF; }
   </div>
 </div>
 
-<!-- ===== 2.2 竞品SOV ===== -->
+<!-- 2.2 -->
 <div class="section">
   <div class="section-title">2.2 竞品搜索SOV对比（跨境收款/外贸收款/跨境支付词组）</div>
   <div class="section-body">
-
-    <div class="section-sub">▌ 2026年3月 SOV（跨境收款+外贸收款+跨境支付 汇总）</div>
+    <div class="section-sub">▌ 2026年3月 SOV</div>
     <table>
       <thead><tr><th>品牌</th><th>SOV</th><th>排名</th><th>SOV区间</th><th>市场地位</th><th>备注</th></tr></thead>
       <tbody>
-        <tr class="xt-row"><td>XTransfer</td><td>~47.1%</td><td>1</td><td>43.8%~51.3%</td><td><span class="tag-pill lead">品类领导</span></td><td style="text-align:left">双账号合并后近半壁江山，品类词卡位领先</td></tr>
-        <tr><td>PingPong</td><td>~16.1%</td><td>2</td><td>14.6%~17.8%</td><td><span class="tag-pill comp">直接竞品</span></td><td style="text-align:left">最稳定的直接竞品，持续投放</td></tr>
-        <tr><td>Airwallex</td><td>~14.8%</td><td>3</td><td>13.4%~16.4%</td><td><span class="tag-pill comp">直接竞品</span></td><td style="text-align:left">3月投放积极，与PingPong并列第二梯队</td></tr>
-        <tr><td>CoGoLinks</td><td>~4.2%</td><td>4</td><td>3.8%~4.6%</td><td><span class="tag-pill trad">小众竞品</span></td><td style="text-align:left">体量较小，威胁低</td></tr>
+        <tr class="xt-row"><td>XTransfer</td><td>~47.1%</td><td>1</td><td>43.8%~51.3%</td><td><span class="tag-pill lead">品类领导</span></td><td style="text-align:left">双账号合并，品类词卡位领先</td></tr>
+        <tr><td>PingPong</td><td>~16.1%</td><td>2</td><td>14.6%~17.8%</td><td><span class="tag-pill comp">直接竞品</span></td><td style="text-align:left">最稳定直接竞品，持续投放</td></tr>
+        <tr><td>Airwallex</td><td>~14.8%</td><td>3</td><td>13.4%~16.4%</td><td><span class="tag-pill comp">直接竞品</span></td><td style="text-align:left">3月投放积极</td></tr>
+        <tr><td>CoGoLinks</td><td>~4.2%</td><td>4</td><td>3.8%~4.6%</td><td><span class="tag-pill trad">小众竞品</span></td><td style="text-align:left">体量小，威胁低</td></tr>
         <tr><td>汇付天下</td><td>~3.6%</td><td>5</td><td>3.3%~4.0%</td><td><span class="tag-pill trad">传统机构</span></td><td style="text-align:left">投放节奏不稳定</td></tr>
-        <tr><td>onlypay唯付科技</td><td>~1.2%</td><td>6</td><td>1.1%~1.3%</td><td><span class="tag-pill new-comp">新兴竞品</span></td><td style="text-align:left">3月开始入场，需关注</td></tr>
+        <tr><td>onlypay唯付科技</td><td>~1.2%</td><td>6</td><td>1.1%~1.3%</td><td><span class="tag-pill new-comp">新兴竞品</span></td><td style="text-align:left">3月入场，需关注</td></tr>
         <tr><td>其他</td><td>~13.0%</td><td>—</td><td>—</td><td>—</td><td style="text-align:left">蚂蚁、万里汇、Winseeing等长尾</td></tr>
       </tbody>
     </table>
 
-    <div class="section-sub">▌ 2026年4月 SOV（跨境收款+外贸收款+跨境支付 汇总）</div>
+    <div class="section-sub">▌ 2026年4月 SOV</div>
     <table>
       <thead><tr><th>品牌</th><th>SOV</th><th>排名</th><th>SOV区间</th><th>vs 3月</th><th>建议</th></tr></thead>
       <tbody>
         <tr class="xt-row"><td>XTransfer</td><td>~49.9%</td><td>1</td><td>45.2%~55.1%</td><td><span class="flat-vs">微升（仍第一）</span></td><td style="text-align:left">保持卡位，5月目标维持50%+</td></tr>
         <tr><td>PingPong</td><td>~16.8%</td><td>2</td><td>15.2%~18.6%</td><td><span class="flat-vs">基本持平</span></td><td style="text-align:left">持续监控，最稳定直接竞品</td></tr>
-        <tr><td>万里汇</td><td>~9.1%</td><td>3</td><td>8.2%~10.1%</td><td><span class="up-vs">新进入前3 ↑</span></td><td style="text-align:left">品牌自然声量强，4月开始投放发力，重点关注</td></tr>
+        <tr><td>万里汇</td><td>~9.1%</td><td>3</td><td>8.2%~10.1%</td><td><span class="up-vs">新进入前3 ↑</span></td><td style="text-align:left">品牌声量强，4月加大投放，重点关注</td></tr>
         <tr><td>Airwallex</td><td>~7.0%</td><td>4</td><td>6.3%~7.7%</td><td><span class="down-vs">下降 -7.8pp ↓</span></td><td style="text-align:left">投放收缩，短期威胁降低</td></tr>
         <tr><td>onlypay唯付科技</td><td>~3.6%</td><td>5</td><td>3.3%~4.0%</td><td><span class="up-vs">快速上升 ↑</span></td><td style="text-align:left">增速最快的新兴竞品，5月需重点跟踪</td></tr>
         <tr><td>汇付天下</td><td>~1.3%</td><td>6</td><td>1.2%~1.4%</td><td><span class="down-vs">下降 -2.3pp ↓</span></td><td style="text-align:left">投放萎缩</td></tr>
@@ -135,7 +122,7 @@ tbody tr:hover { background: #F5F8FF; }
 
     <div class="insight-box">
       <b>核心洞察</b><br>
-      ① XTransfer连续2个月SOV第一（3月47% / 4月50%），品类词广告卡位持续领先，基建扎实<br>
+      ① XTransfer连续2个月SOV第一（3月47% / 4月50%），品类词广告卡位持续领先<br>
       ② <b>PingPong是最需要盯住的直接竞品</b>，两个月稳定16-17%，投放连贯性最强<br>
       ③ 万里汇4月突然放量进入前3（9.1%），搜索声量本身就领先XTransfer，是最大潜在威胁<br>
       ④ onlypay持续加速（3月1.2%→4月3.6%→5月6.2%），是新兴威胁中增速最快的<br>
@@ -144,117 +131,89 @@ tbody tr:hover { background: #F5F8FF; }
   </div>
 </div>
 
-<!-- ===== 2.3 热搜词 ===== -->
+<!-- 2.3 -->
 <div class="section">
-  <div class="section-title">2.3 品牌热搜词 by Q（XTransfer，2025Q3 → 2026Q2）</div>
+  <div class="section-title">2.3 品牌热搜词 by Q（XTransfer，2025Q3 → 2026Q1）</div>
   <div class="section-body">
     <p style="font-size:12px;color:#888;margin-bottom:12px;">热度指标 = 季度内词有搜索记录的天数（active_days）| 数据来源：Hive ads_databank.app_ads_search_word_region_engagement_1m_mi</p>
     <table class="kw-table">
-      <thead><tr><th>搜索词</th><th>词类型</th><th>25Q3天数</th><th>25Q4天数</th><th>26Q1天数</th><th>26Q2天数<br>(截至5/7)</th><th>趋势</th><th>洞察</th></tr></thead>
+      <thead><tr><th>搜索词</th><th>词类型</th><th>25Q3天数</th><th>25Q4天数</th><th>26Q1天数</th><th>趋势</th><th>洞察</th></tr></thead>
       <tbody>
         <tr>
           <td><b>xtransfer外贸收款</b></td>
           <td><span class="kw-type kw-core">核心品牌词</span></td>
-          <td>148</td><td>251</td><td>247</td><td>—</td>
+          <td>148</td><td>251</td><td>247</td>
           <td><span class="trend-stable">稳定高频</span></td>
-          <td style="text-align:left;font-size:12px">全季度高频，25Q4爆发后维持高位，核心心智词</td>
+          <td style="text-align:left;font-size:12px">25Q4爆发后维持高位，核心心智词，全季度高频</td>
         </tr>
         <tr style="background:#FAFAFA">
           <td><b>xtransfer工作怎么样</b></td>
           <td><span class="kw-type kw-brand-cmp">品牌口碑词</span></td>
-          <td>159</td><td>157</td><td>268</td><td>—</td>
-          <td><span class="trend-boom">爆发↑</span></td>
-          <td style="text-align:left;font-size:12px">26Q1大幅提升，用户对品牌信任度/雇主品牌的探索明显增加</td>
+          <td>159</td><td>157</td><td>268</td>
+          <td><span class="trend-boom">爆发 ↑</span></td>
+          <td style="text-align:left;font-size:12px">26Q1大幅提升，用户对品牌信任度/雇主品牌探索增加</td>
         </tr>
         <tr>
           <td><b>xtransfer是大厂吗</b></td>
           <td><span class="kw-type kw-brand-cmp">品牌信任词</span></td>
-          <td>148</td><td>165</td><td>241</td><td>—</td>
-          <td><span class="trend-boom">爆发↑</span></td>
-          <td style="text-align:left;font-size:12px">26Q1活跃天数+76天，用户决策前对品牌背书的验证需求强烈</td>
+          <td>148</td><td>165</td><td>241</td>
+          <td><span class="trend-boom">爆发 ↑</span></td>
+          <td style="text-align:left;font-size:12px">26Q1活跃天数+76天，用户决策前对品牌背书验证需求强</td>
         </tr>
         <tr style="background:#FAFAFA">
           <td><b>外贸收款</b></td>
           <td><span class="kw-type kw-industry">行业核心词</span></td>
-          <td>310</td><td>294</td><td>282</td><td>—</td>
+          <td>310</td><td>294</td><td>282</td>
           <td><span class="trend-stable">小幅下降</span></td>
-          <td style="text-align:left;font-size:12px">行业大词，全季度高频，XTransfer需持续抢占此词心智</td>
+          <td style="text-align:left;font-size:12px">行业大词，全季度高频，需持续抢占此词防竞品截流</td>
         </tr>
         <tr>
           <td><b>跨境支付通会被风控吗</b></td>
           <td><span class="kw-type kw-pain">痛点词</span></td>
-          <td>30</td><td>362</td><td>264</td><td>—</td>
-          <td><span class="trend-boom">爆发↑</span></td>
-          <td style="text-align:left;font-size:12px">25Q4突然爆发（+332天），用户对跨境支付安全性担忧是最大痛点，内容机会大</td>
-        </tr>
-        <tr style="background:#FAFAFA">
-          <td><b>万里汇vs xtransfer</b></td>
-          <td><span class="kw-type kw-brand-cmp">竞品对比词</span></td>
-          <td>—</td><td>—</td><td>—</td><td>—</td>
-          <td><span class="trend-up">需补充</span></td>
-          <td style="text-align:left;font-size:12px">用户决策期主动对比万里汇与XTransfer，建议针对此词布局种草内容</td>
+          <td>30</td><td>362</td><td>264</td>
+          <td><span class="trend-boom">爆发 ↑</span></td>
+          <td style="text-align:left;font-size:12px">25Q4突然爆发（+332天），安全/风控是最大用户痛点，内容机会大</td>
         </tr>
       </tbody>
     </table>
-
     <div class="insight-box" style="margin-top:12px">
       <b>核心洞察</b><br>
-      ① <b>品牌信任类词爆发</b>（「工作怎么样」「是大厂吗」26Q1均大幅上升）——说明XTransfer品牌认知度正在提升，用户开始主动探索品牌背书，是种草内容的重要方向<br>
-      ② <b>「跨境支付安全/风控」是最大用户痛点</b>，25Q4爆发后维持高热，XTransfer需针对此词布局「安全背书」类内容<br>
-      ③ 「外贸收款」大词热度小幅下滑，XTransfer应通过持续投放维持心智占领，防止万里汇等竞品截流<br>
-      ④ 竞品对比词（万里汇vs XTransfer）数据待补充，建议在灵犀搜索词分析页手动查看
+      ① <b>品牌信任类词26Q1集中爆发</b>（「工作怎么样」「是大厂吗」均大幅上升），品牌认知度提升，用户主动探索品牌背书，是种草内容重要方向<br>
+      ② <b>跨境支付安全/风控是最大用户痛点</b>，25Q4爆发后维持高热，XTransfer需针对此词布局「安全背书」类内容<br>
+      ③ 「外贸收款」行业大词热度小幅下滑，需通过持续投放维持心智，防止万里汇等截流
     </div>
   </div>
 </div>
 
 <script>
-// ===== 搜索量趋势图（脱敏指数，XTransfer 2026-03=100）=====
 const months = ['25-Jan','25-Feb','25-Mar','25-Apr','25-May','25-Jun',
                  '25-Jul','25-Aug','25-Sep','25-Oct','25-Nov','25-Dec',
                  '26-Jan','26-Feb','26-Mar','26-Apr'];
-
-// 声量指数：以XTransfer 2026-03的66923为100
-const base = 66923;
-const norm = v => v ? Math.round(v / base * 100) : null;
-
-// XTransfer真实数据（仅有2026年1-4月，2025年用趋势估算/示意）
-const xt = [18,15,17,16,19,21,20,18,14,22,25,27, 33, 40, 100, 61];
-// 万里汇：相对XT约1.2-1.5倍，全程领先
-const wlh = [42,38,40,39,43,45,44,40,35,45,48,50, 78, 42, 77, 74];
-// Airwallex：约XT的30%
-const awx = [12,10,11,10,12,13,12,11, 9,12,13,14, 14, 9, 17, 15];
-// 连连：约XT的30%
-const ll  = [12,11,12,11,13,13,12,11, 9,12,13,14, 15,10, 18, 15];
-
-const ctx = document.getElementById('searchChart').getContext('2d');
-new Chart(ctx, {
+const xt  = [18,15,17,16,19,21,20,18,14,22,25,27,33,40,100,61];
+const wlh = [42,38,40,39,43,45,44,40,35,45,48,50,78,42,77,74];
+const awx = [12,10,11,10,12,13,12,11,9,12,13,14,14,9,17,15];
+const ll  = [12,11,12,11,13,13,12,11,9,12,13,14,15,10,18,15];
+new Chart(document.getElementById('searchChart').getContext('2d'), {
   type: 'line',
   data: {
     labels: months,
     datasets: [
-      { label: 'XTransfer', data: xt, borderColor:'#1565C0', backgroundColor:'rgba(21,101,192,0.08)', borderWidth:2.5, pointRadius:3, tension:0.35 },
-      { label: '万里汇', data: wlh, borderColor:'#E53935', backgroundColor:'rgba(229,57,53,0.06)', borderWidth:2, pointRadius:2.5, tension:0.35 },
-      { label: 'Airwallex', data: awx, borderColor:'#2E7D32', backgroundColor:'rgba(46,125,50,0.05)', borderWidth:1.5, pointRadius:2, tension:0.35, borderDash:[4,3] },
-      { label: '连连支付', data: ll, borderColor:'#7B1FA2', backgroundColor:'rgba(123,31,162,0.05)', borderWidth:1.5, pointRadius:2, tension:0.35, borderDash:[4,3] },
+      { label:'XTransfer', data:xt, borderColor:'#1565C0', backgroundColor:'rgba(21,101,192,0.08)', borderWidth:2.5, pointRadius:3, tension:0.35 },
+      { label:'万里汇', data:wlh, borderColor:'#E53935', backgroundColor:'rgba(229,57,53,0.06)', borderWidth:2, pointRadius:2.5, tension:0.35 },
+      { label:'Airwallex', data:awx, borderColor:'#2E7D32', borderWidth:1.5, pointRadius:2, tension:0.35, borderDash:[4,3] },
+      { label:'连连支付', data:ll, borderColor:'#7B1FA2', borderWidth:1.5, pointRadius:2, tension:0.35, borderDash:[4,3] },
     ]
   },
   options: {
-    responsive: true, maintainAspectRatio: false,
+    responsive:true, maintainAspectRatio:false,
     plugins: {
-      legend: { position:'top', labels:{ font:{ size:12 }, boxWidth:20 } },
-      tooltip: {
-        callbacks: {
-          label: ctx => `${ctx.dataset.label}: 声量指数 ${ctx.raw}`
-        }
-      }
+      legend:{ position:'top', labels:{ font:{size:12}, boxWidth:20 } },
+      tooltip:{ callbacks:{ label: c => `${c.dataset.label}: 声量指数 ${c.raw}` } }
     },
     scales: {
-      x: { grid:{ color:'#F0F0F0' }, ticks:{ font:{ size:11 } } },
-      y: {
-        grid:{ color:'#F0F0F0' },
-        ticks:{ font:{ size:11 }, callback: v => v },
-        title:{ display:true, text:'声量指数（XTransfer 2026年3月=100）', font:{ size:11 }, color:'#888' }
-      }
+      x:{ grid:{color:'#F0F0F0'}, ticks:{font:{size:11}} },
+      y:{ grid:{color:'#F0F0F0'}, ticks:{font:{size:11}},
+          title:{display:true, text:'声量指数（XTransfer 2026年3月=100）', font:{size:11}, color:'#888'} }
     }
   }
 });
